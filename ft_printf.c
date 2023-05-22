@@ -6,7 +6,7 @@
 /*   By: cmateos- <cmateos-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:02:58 by cmateos-          #+#    #+#             */
-/*   Updated: 2023/05/21 21:46:18 by cmateos-         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:42:58 by cmateos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -18,16 +18,17 @@ int	ft_variables(char c, va_list arg)
 	if (c == 's')
 		return (ft_putstr_pf(va_arg(arg, char *)));
 	if (c == 'd' || c == 'i')
-		return (ft_putnbr_pf(va_arg(arg, int), 0));
+		return (ft_putnbr_pf(va_arg(arg, int), 1));
 	if (c == 'p')
 	{
 		write(1, "0x", 2);
-		return (ft_putptr_pf(va_arg(arg, unsigned long), "0123456789abcdef", 2));
+		return (ft_putptr_pf(va_arg(arg, unsigned long),
+				"0123456789abcdef", 1));
 	}
 	if (c == 'x')
-		return (ft_puthex(va_arg(arg, unsigned long), "0123456789abcdef", 0));
+		return (ft_puthex(va_arg(arg, unsigned int), "0123456789abcdef", 0));
 	if (c == 'X')
-		return (ft_puthex(va_arg(arg, unsigned long), "0123456789ABCDEF", 0));
+		return (ft_puthex(va_arg(arg, unsigned int), "0123456789ABCDEF", 0));
 	if (c == '%')
 		return (ft_putchr_pf('%'));
 	if (c == 'u')
@@ -54,12 +55,16 @@ int	ft_printf(char const *s, ...)
 				count += ft_variables(s[i], arg);
 			}
 			else
+			{
 				count += write(1, &s[i], 1);
+			}
 			i++;
 		}
+
 	}
 	va_end(arg);
-//	printf("\ncount: %i", count);
+//	printf("co:%i", count);
+
 	return (count);
 }/*
 int	main(void)
@@ -69,9 +74,9 @@ int	main(void)
 	int d = 2432;
 	void *ptr = "ke pasa";
 
-	ft_printf("%p", "");
-	printf("\n%p", "");
-	
+	ft_printf("%d", -10000);
+	printf("\noriginal: %d", -10000);
+
 //	ft_printf("%c", c);
 //	printf("\noriginal:%c\n", c);
 	
