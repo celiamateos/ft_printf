@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_variables(char c, va_list arg)
+int	ft_variables(char c, va_list arg, int* count)
 {
 	if (c == 'c')
 		return (ft_putchr_pf(va_arg(arg, int)));
 	if (c == 's')
 		return (ft_putstr_pf(va_arg(arg, char *)));
 	if (c == 'd' || c == 'i')
-		return (ft_putnbr_pf(va_arg(arg, int), 1));
+		return (ft_putnbr_pf(va_arg(arg, int), count));
 	if (c == 'p')
 	{
 		write(1, "0x", 2);
@@ -52,7 +52,7 @@ int	ft_printf(char const *s, ...)
 			if (s[i] == '%')
 			{
 				i++;
-				count += ft_variables(s[i], arg);
+				count += ft_variables(s[i], arg, &count);
 			}
 			else
 			{
@@ -63,10 +63,10 @@ int	ft_printf(char const *s, ...)
 
 	}
 	va_end(arg);
-//	printf("co:%i", count);
+	printf("co:%u", count);
 
 	return (count);
-}/*
+}
 int	main(void)
 {
 	char c = '%';
@@ -74,8 +74,8 @@ int	main(void)
 	int d = 2432;
 	void *ptr = "ke pasa";
 
-	ft_printf("%d", -10000);
-	printf("\noriginal: %d", -10000);
+	ft_printf("%d%d%d", -56410000, 654, 1);
+	printf("\noriginal: %d", -12345);
 
 //	ft_printf("%c", c);
 //	printf("\noriginal:%c\n", c);
@@ -95,4 +95,4 @@ int	main(void)
 //	ft_printf("soy un porcentaje: %%");
 //	printf("\noriginal: %%\n");
 	return (0);
-}*/
+}

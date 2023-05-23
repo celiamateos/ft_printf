@@ -20,7 +20,7 @@
 int	ft_printf(char const *s, ...);
 int	ft_putchr_pf(char c);
 int	ft_putstr_pf(char *s);
-int	ft_putnbr_pf(long nbr, int count);
+int	ft_putnbr_pf(long nbr,int *count);
 int	ft_putptr_pf(unsigned long nbr, char *hex, int count);
 int	ft_puthex(unsigned int nbr, char *hex, int count);
 int	ft_putun(unsigned long, int count);

@@ -13,6 +13,5 @@
 
 int	ft_putchr_pf(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
