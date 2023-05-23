@@ -11,19 +11,11 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_putun(unsigned long nbr, int count)
+int	ft_putun(unsigned long nbr, int *count)
 {
-	if (nbr < 10)
-	{
-		nbr = nbr + '0';
-		write (1, &nbr, 1);
-		count++;
-	}
-	else
-	{
-		count += ft_putun(nbr / 10, count);
-		nbr = nbr % 10 + '0';
-		write (1, &nbr, 1);
-	}
-	return (count);
+	if (nbr / 10 != 0)
+		ft_putun(nbr / 10, count);
+	nbr = nbr % 10 + '0';
+	*count += write (1, &nbr, 1);
+	return (0);
 }

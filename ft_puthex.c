@@ -11,15 +11,11 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int nbr, char *hex, int count)
+int	ft_puthex(unsigned long long nbr, char *hex, int *count)
 {
-	if (nbr < 16)
-		count += write(1, &hex[nbr], 1);
-	else
-	{
-		count += ft_puthex(nbr / 16, hex, count);
-		nbr = nbr % 16;
-		write (1, &hex[nbr], 1);
-	}
-	return (count);
+	if (nbr / 16 != 0)
+		ft_puthex(nbr / 16, hex, count);
+	nbr = nbr % 16;
+	*count += write (1, &hex[nbr], 1);
+	return (0);
 }
