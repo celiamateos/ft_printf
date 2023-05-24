@@ -6,12 +6,12 @@
 /*   By: cmateos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:37:13 by cmateos-          #+#    #+#             */
-/*   Updated: 2023/05/21 21:46:47 by cmateos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:48:34 by cmateos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_putun(unsigned long nbr, int *count)
+int	ft_putun(unsigned int nbr, int *count)
 {
 	if (nbr / 10 != 0)
 		ft_putun(nbr / 10, count);

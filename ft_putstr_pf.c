@@ -6,7 +6,7 @@
 /*   By: cmateos- <cmateos-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:06:34 by cmateos-          #+#    #+#             */
-/*   Updated: 2023/05/22 18:09:27 by cmateos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:59:22 by cmateos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putstr_pf(char *s)
 {
 	int	i;
-	int count;
+	int	count;
 
 	count = 0;
 	i = 0;
