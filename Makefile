@@ -14,6 +14,8 @@ NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIB = ar rcs
+MAIN = mainprintf.c
+MAIN_OBJ = $(MAIN:.c=.o)
 SRC = ft_printf.c \
 	ft_putchr_pf.c \
 	ft_putstr_pf.c \
@@ -37,6 +39,15 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+normi:
+	norminette
+
+main: $(NAME) $(MAIN_OBJ)
+	gcc $(NAME) $(MAIN_OBJ) -o printf
+
+run_main: $(NAME) $(MAIN_OBJ)
+	gcc $(NAME) $(MAIN_OBJ) -o printf && ./printf
+
 re: fclean all
 
-.PHONY: all, clean, fclean, re,
+.PHONY: all, clean, fclean, re, normi
