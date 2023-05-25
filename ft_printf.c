@@ -6,7 +6,7 @@
 /*   By: cmateos- <cmateos-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:02:58 by cmateos-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:02:00 by cmateos-         ###   ########.fr       */
+/*   Updated: 2023/05/24 22:15:38 by cmateos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -54,12 +54,12 @@ int	ft_printf(char const *s, ...)
 			if (s[i] == '%')
 			{
 				i++;
+				if (s[i] == '\0')
+					return (0);
 				count += ft_variables(s[i], arg, &count);
 			}
 			else
-			{
 				count += write(1, &s[i], 1);
-			}
 			i++;
 		}
 	}
