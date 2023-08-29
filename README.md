@@ -26,11 +26,4 @@ My ft_printf supports the following conversions:
 For more detailed information, look at the [subject of this project](https://cdn.intra.42.fr/pdf/pdf/89579/es.subject.pdf).
 
 ---
-## 🛠️ Usage ##
-### **Requirements** ###
-The fuction is written in **C language** and thus needs the **gcc compiler** and some **standard C** libraries to run.
 
----
-### **Instructions** ###
-**Using it in your code**
-To use the function in your code, simply clone this repository, enter it and enter the command `make`
